@@ -8,30 +8,21 @@ public class PlayerWeaponController : MonoBehaviour
 {
     public string CurrentWeapon;
     public bool InTrigger;
-    public bool IsArmed;
     private void Update()
     {
-        if(CurrentWeapon == AWepon.KNIFE)
-        {
-            IsArmed = false;
-        }
-        else
-        {
-            IsArmed = true;
-        }
         WeaponManager();
         Debug.Log(CurrentWeapon);
     }
     void WeaponManager()
     {
-        if(Input.GetMouseButtonDown(1)&&!InTrigger&&IsArmed)
+        if(Input.GetMouseButtonDown(1)&&!InTrigger)
         {
             DropWeapon(CurrentWeapon);
         }
     }
     public void DropWeapon(string weapon)
     {
-        if (IsArmed)
+        if (CurrentWeapon != AWepon.KNIFE)
         {
             Instantiate(Resources.Load("Prefabs/Items/" + weapon), transform.position, Quaternion.identity);
             if(!InTrigger)
