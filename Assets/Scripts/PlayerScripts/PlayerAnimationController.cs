@@ -5,24 +5,24 @@ using UnityEngine;
 public class PlayerAnimationController : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
-    [SerializeField] private PlayerWeaponsManager _playerWeaponsManager;
+    [SerializeField] PlayerWeaponController _playerWeaponController;
     private int _weaponID = 0;
     private void Update()
     {
-        WeaponAnimation(_playerWeaponsManager.CurrentWeapon);
+        WeaponAnimation(_playerWeaponController.CurrentWeapon);
         _animator.SetInteger("weapons", _weaponID);
     }
     void WeaponAnimation(string weapon)
     {
-        switch(weapon)
-        {
-            case Weapons.KNIFE:
+       switch(weapon)
+       {
+            case AWepon.KNIFE:
                 _weaponID = 0;
                 break;
-            case Weapons.PISTOL:
-                _weaponID = 1;  
+            case AWepon.PISTOL:
+                _weaponID = 1;
                 break;
-            case Weapons.RIFLE:
+            case AWepon.RIFLE:
                 _weaponID = 2;
                 break;
         }
