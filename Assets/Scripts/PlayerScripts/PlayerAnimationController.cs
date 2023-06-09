@@ -9,6 +9,7 @@ public class PlayerAnimationController : MonoBehaviour
     private int _weaponID = 0;
     private void Update()
     {
+        Debug.Log(_animator.GetInteger("weapons")) ;
         WeaponAnimation(_playerWeaponController.CurrentWeapon);
         _animator.SetInteger("weapons", _weaponID);
     }
