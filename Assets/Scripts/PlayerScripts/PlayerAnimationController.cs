@@ -11,6 +11,11 @@ public class PlayerAnimationController : MonoBehaviour
     public int WeaponID => _weaponID;
     private void Update()
     {
+        _shoot = _playerWeaponController.Shoot;
+        if(_shoot)
+        {
+            StartCoroutine("shooting");
+        }
         Debug.Log(_animator.GetInteger("weapons")) ;
         WeaponAnimation(_playerWeaponController.CurrentWeapon);
         _animator.SetInteger("weapons", _weaponID);

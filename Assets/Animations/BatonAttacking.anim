@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: KnifeAnimation
+  m_Name: BatonAttacking
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,7 +20,15 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -238822149, guid: 866b9ce5228ecc04b925401d021c2b78, type: 3}
+      value: {fileID: 323497207, guid: 866b9ce5228ecc04b925401d021c2b78, type: 3}
+    - time: 0.1
+      value: {fileID: -1707331790, guid: 866b9ce5228ecc04b925401d021c2b78, type: 3}
+    - time: 0.21666667
+      value: {fileID: -1929241137, guid: 866b9ce5228ecc04b925401d021c2b78, type: 3}
+    - time: 0.31666666
+      value: {fileID: 1460304199, guid: 866b9ce5228ecc04b925401d021c2b78, type: 3}
+    - time: 0.41666666
+      value: {fileID: 502861038, guid: 866b9ce5228ecc04b925401d021c2b78, type: 3}
     attribute: m_Sprite
     path: SpriteSquare
     classID: 212
@@ -40,13 +48,17 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -238822149, guid: 866b9ce5228ecc04b925401d021c2b78, type: 3}
+    - {fileID: 323497207, guid: 866b9ce5228ecc04b925401d021c2b78, type: 3}
+    - {fileID: -1707331790, guid: 866b9ce5228ecc04b925401d021c2b78, type: 3}
+    - {fileID: -1929241137, guid: 866b9ce5228ecc04b925401d021c2b78, type: 3}
+    - {fileID: 1460304199, guid: 866b9ce5228ecc04b925401d021c2b78, type: 3}
+    - {fileID: 502861038, guid: 866b9ce5228ecc04b925401d021c2b78, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.016666668
+    m_StopTime: 0.43333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
