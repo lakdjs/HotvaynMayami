@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 8845154608463824704}
   - component: {fileID: 8845154608463824705}
   - component: {fileID: 8845154608463824706}
-  - component: {fileID: 8845154608463824707}
+  - component: {fileID: 2084153080}
   m_Layer: 0
   m_Name: Pistol
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,8 +117,8 @@ MonoBehaviour:
   _damage: 0
   _firePoint: {fileID: 0}
   _bullet: {fileID: 0}
---- !u!70 &8845154608463824707
-CapsuleCollider2D:
+--- !u!68 &2084153080
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -130,6 +130,22 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2.9271886, y: 5.1242843}
-  m_Size: {x: 15.146736, y: 54.09548}
-  m_Direction: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -10.404901, y: -6.8456492}
+  - {x: -8.26372, y: -15.793623}
+  - {x: -2.312828, y: -20.851013}
+  - {x: 3.8429384, y: -19.32358}
+  - {x: 7.171035, y: -16.3802}
+  - {x: 8.477497, y: -6.0418677}
+  - {x: 8.783161, y: -1.8647966}
+  - {x: 8.922874, y: 5.8692465}
+  - {x: 8.992731, y: 9.61152}
+  - {x: 8.643452, y: 18.094028}
+  - {x: -2.4188595, y: 14.786684}
+  - {x: -10.375214, y: -6.377482}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0

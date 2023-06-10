@@ -18,9 +18,24 @@ public abstract class AWepon : MonoBehaviour
     [SerializeField] private int _damage;
     [SerializeField] private Transform _firePoint;
     [SerializeField] private GameObject _bullet;
+    public bool IsInTrigger { get; private set; }
 
     public AWepon.Weapons Type => _weaponType;
     public int Damage => _damage;
         
     public abstract void Fire();
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            IsInTrigger = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+       if (collision.tag == "Player")
+        {
+            IsInTrigger = false;
+        }
+    }
 }

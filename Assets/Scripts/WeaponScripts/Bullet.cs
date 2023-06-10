@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
         transform.Translate(new Vector2(0,_speed * Time.deltaTime));
         Destroy(gameObject, 5);
     }
-    private void OnTriggerEnter2D(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "enemy")
         {

@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 242890762039089897}
   - component: {fileID: 242890762039089896}
   - component: {fileID: 242890762039089899}
-  - component: {fileID: 242890762039089898}
+  - component: {fileID: 5316001714666234692}
   m_Layer: 0
   m_Name: Rifle
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,8 +117,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weapon: {fileID: 242890762039089896}
---- !u!70 &242890762039089898
-CapsuleCollider2D:
+--- !u!68 &5316001714666234692
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -130,6 +130,22 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.9981164, y: 0.6633231}
-  m_Size: {x: 13.082462, y: 63.468346}
-  m_Direction: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 6.5119114, y: 21.456108}
+  - {x: 6.4403205, y: 22.29172}
+  - {x: -1.1992981, y: 15.605074}
+  - {x: -7.03218, y: 2.610879}
+  - {x: -7.0319824, y: -14.4207}
+  - {x: -0.20284128, y: -19.976292}
+  - {x: 1.9093037, y: -20.302172}
+  - {x: 3.369203, y: -20.306679}
+  - {x: 5.143766, y: -19.923548}
+  - {x: 7.281314, y: -16.283667}
+  - {x: 7.9266095, y: -8.42918}
+  - {x: 6.5150256, y: 22.413994}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
