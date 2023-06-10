@@ -8,7 +8,7 @@ public class MovementController : MonoBehaviour
     [SerializeField] private float _speed;
 
     private float _x, _y;
-    public bool canMove = true;
+    private bool _canMove = true;
 
     private Vector3 _mousePosition;
     private Vector3 _direct;
@@ -30,7 +30,7 @@ public class MovementController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (canMove)
+        if (_canMove)
         {
             MovementManager();
         }

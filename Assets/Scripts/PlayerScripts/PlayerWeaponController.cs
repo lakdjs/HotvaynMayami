@@ -7,18 +7,22 @@ using UnityEngine.AI;
 public class PlayerWeaponController : MonoBehaviour
 {
     [SerializeField]private string _currentWeapon;
-    private bool _inTrigger;
+    [SerializeField] Transform _firePoint;
+    private bool _inTrigger = false, _shoot = true;
     private string _weaponInTrigger;
     private bool _isWeaponInTrigger;
+    
     private Collider2D _col;
     public string CurrentWeapon => _currentWeapon;
     public bool InTrigger => _inTrigger;
+    public bool Shoot => _shoot;
     private void Start()
     {
         _isWeaponInTrigger = false;
     }
     private void Update()
     {
+        Shooting();
         WeaponManager();
         Debug.Log(CurrentWeapon);
         if (_inTrigger && _isWeaponInTrigger && Input.GetMouseButtonDown(1))
@@ -67,6 +71,31 @@ public class PlayerWeaponController : MonoBehaviour
         {
             Debug.Log("Нельзя выкинуть нож!");
         }
+    }
+   void Shooting()
+    {
+        if(CurrentWeapon == AWepon.PISTOL)
+        {
+            if (Input.GetMouseButtonDown(0) && _shoot)
+            {
+                StartCoroutine("shooting", 0.5f);
+            }
+        }
+        if(CurrentWeapon == AWepon.RIFLE)
+        {
+            if (Input.GetMouseButton(0) && _shoot)
+            {
+                StartCoroutine("shooting", 0.1f);
+            }
+        }
+    }
+    IEnumerator shooting(float time)
+    {
+        Instantiate(Resources.Load("Prefabs/Items/" + CurrentWeapon + "_bullet"),_firePoint.position,_firePoint.rotation);
+        _shoot = false;
+
+        yield return new WaitForSeconds(time);
+        _shoot = true;
     }
     IEnumerator wait()
     {
