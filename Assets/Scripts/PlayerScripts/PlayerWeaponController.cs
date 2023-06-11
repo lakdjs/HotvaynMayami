@@ -9,6 +9,7 @@ public class PlayerWeaponController : MonoBehaviour
     [SerializeField] PlayerAnimationController _playerAnimationController;
     [SerializeField]private string _currentWeapon;
     [SerializeField] Transform _firePoint;
+    [SerializeField] private Animator _animator;
     private bool _inTrigger = false, _shoot = true;
     private string _weaponInTrigger;
     private bool _isWeaponInTrigger;
@@ -23,9 +24,9 @@ public class PlayerWeaponController : MonoBehaviour
     }
     private void Update()
     {
+        Debug.Log(_shoot);
         AttackManager(_playerAnimationController.WeaponID);
         WeaponManager();
-        Debug.Log(CurrentWeapon);
         if (_inTrigger && _isWeaponInTrigger && Input.GetMouseButtonDown(1))
         {
             StartCoroutine("wait");
@@ -75,13 +76,12 @@ public class PlayerWeaponController : MonoBehaviour
     }
    void AttackManager(int id)
     {
-        
-
         if (Input.GetMouseButtonDown(0) && _shoot)
             {
             switch (id)
             {
                 case 0:
+                    _animator.SetTrigger("attack");
                     break;
                 case 1:
                     StartCoroutine("shooting", 0.5f);
@@ -105,6 +105,7 @@ public class PlayerWeaponController : MonoBehaviour
     IEnumerator shooting(float time)
     {
         Instantiate(Resources.Load("Prefabs/Items/" + CurrentWeapon + "_bullet"),_firePoint.position,_firePoint.rotation);
+        _animator.SetTrigger("attack");
         _shoot = false;
 
         yield return new WaitForSeconds(time);

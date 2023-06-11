@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 316520274997191606}
   - component: {fileID: 316520274997191607}
   - component: {fileID: 7436729531189484949}
+  - component: {fileID: 1858967794581221251}
   m_Layer: 0
   m_Name: Pistol_bullet
   m_TagString: Bullet
@@ -98,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 897868385e418a04d836c4c012ec94f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 100
+  _speed: 40
 --- !u!58 &7436729531189484949
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -115,3 +116,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!50 &1858967794581221251
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316520274997191604}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4

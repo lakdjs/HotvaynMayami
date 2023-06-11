@@ -10,17 +10,26 @@ public class Bullet : MonoBehaviour
         transform.Translate(new Vector2(0,_speed * Time.deltaTime));
         Destroy(gameObject, 1.5f);
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(other.tag == "Enemy")
+        if(collision.gameObject.layer == 6||collision.gameObject.layer == 3)
         {
-            Debug.Log("Enemy!");
-            Destroy(gameObject);
-        }
-        else if(other.tag == "Other")
-        {
-            Debug.Log("Other!");
             Destroy(gameObject);
         }
     }
+   //private void OnTriggerEnter2D(Collider2D other)
+   //{
+   //    Debug.Log("Chtoto");
+   //    if(other.gameObject.layer == 6)
+   //    {
+   //        Debug.Log("Enemy!");
+   //        _col = other;
+   //       // Destroy(gameObject);
+   //    }
+   //    else if(other.gameObject.layer == 3)
+   //    {
+   //        Debug.Log("Other!");
+   //        Destroy(gameObject);
+   //    }
+   //}
 }

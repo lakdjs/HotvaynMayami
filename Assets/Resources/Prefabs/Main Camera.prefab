@@ -100,7 +100,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody2D: {fileID: 0}
   _speed: 10
-  canMove: 1
 --- !u!114 &4598643105721360667
 MonoBehaviour:
   m_ObjectHideFlags: 0
