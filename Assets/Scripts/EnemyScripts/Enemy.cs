@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private AWepon _weaponType;
+    [SerializeField] private int _health;
+    [SerializeField] private int _defense;
+    [SerializeField] private float _speed;
 }
