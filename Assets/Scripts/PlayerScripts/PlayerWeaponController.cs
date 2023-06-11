@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class PlayerWeaponController : MonoBehaviour
 {
+    [SerializeField] PlayerAnimationController _playerAnimationController;
     [SerializeField]private string _currentWeapon;
     [SerializeField] Transform _firePoint;
     private bool _inTrigger = false, _shoot = true;
@@ -22,17 +23,13 @@ public class PlayerWeaponController : MonoBehaviour
     }
     private void Update()
     {
-        Shooting();
+        AttackManager(_playerAnimationController.WeaponID);
         WeaponManager();
         Debug.Log(CurrentWeapon);
         if (_inTrigger && _isWeaponInTrigger && Input.GetMouseButtonDown(1))
         {
             StartCoroutine("wait");
         }
-    }
-    private void FixedUpdate()
-    {
-        
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -76,20 +73,32 @@ public class PlayerWeaponController : MonoBehaviour
             Debug.Log("Нельзя выкинуть нож!");
         }
     }
-   void Shooting()
+   void AttackManager(int id)
     {
-        if(CurrentWeapon == AWepon.PISTOL)
-        {
-            if (Input.GetMouseButtonDown(0) && _shoot)
+        
+
+        if (Input.GetMouseButtonDown(0) && _shoot)
             {
-                StartCoroutine("shooting", 0.5f);
+            switch (id)
+            {
+                case 0:
+                    break;
+                case 1:
+                    StartCoroutine("shooting", 0.5f);
+                    break;
+                default:
+                    break;
             }
-        }
-        if(CurrentWeapon == AWepon.RIFLE)
-        {
+            }
             if (Input.GetMouseButton(0) && _shoot)
             {
-                StartCoroutine("shooting", 0.1f);
+            switch (id)
+            {
+                case 2:
+                    StartCoroutine("shooting", 0.1f);
+                    break;
+                default:
+                    break;
             }
         }
     }

@@ -108,14 +108,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1743322807}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.071, y: -0.09, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 1.268, y: -0.165, z: 0}
   m_LocalScale: {x: 1.025, y: 1.475, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1340640525024954756}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!61 &1743322809
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -126,7 +126,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -156,7 +156,8 @@ GameObject:
   - component: {fileID: 1719283794}
   - component: {fileID: 1719283795}
   - component: {fileID: 1719283799}
-  - component: {fileID: 1719283798}
+  - component: {fileID: 4777747599307019068}
+  - component: {fileID: 8169137714405861843}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -301,9 +302,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9ecc790dedc2434b82517b66552eb39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerAnimationController: {fileID: 1719283795}
   _currentWeapon: Knife
   _firePoint: {fileID: 1743322808}
---- !u!61 &1719283798
+--- !u!61 &4777747599307019068
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -316,7 +318,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0667271, y: -0.19484282}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -327,8 +329,24 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9769834, y: 1.2865969}
+  m_Size: {x: 0.0001, y: 0.0001}
   m_EdgeRadius: 0
+--- !u!58 &8169137714405861843
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340640525024954777}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.000000022281997, y: -0.18691497}
+  serializedVersion: 2
+  m_Radius: 0.5509768
 --- !u!1 &1340640525599793169
 GameObject:
   m_ObjectHideFlags: 0

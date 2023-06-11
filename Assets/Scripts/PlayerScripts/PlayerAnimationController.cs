@@ -11,15 +11,10 @@ public class PlayerAnimationController : MonoBehaviour
     public int WeaponID => _weaponID;
     private void Update()
     {
-        _shoot = _playerWeaponController.Shoot;
-        if(_shoot)
-        {
-            StartCoroutine("shooting");
-        }
-        Debug.Log(_animator.GetInteger("weapons")) ;
+        Debug.Log(_shoot);
         WeaponAnimation(_playerWeaponController.CurrentWeapon);
         _animator.SetInteger("weapons", _weaponID);
-
+        AtttackAnimation();
     }
     void WeaponAnimation(string weapon)
     {
@@ -36,13 +31,39 @@ public class PlayerAnimationController : MonoBehaviour
                 break;
         }
     }
-
+    void AtttackAnimation()
+    {
+        _shoot = _playerWeaponController.Shoot;
+        if (Input.GetMouseButtonDown(0))
+        {
+            switch (_weaponID)
+            {
+                case 0:
+                    _animator.SetTrigger("attack");
+                    break;
+                case 1:
+                    StartCoroutine("shooting",0.5);
+                    break;
+                default:
+                    break;
+            }
+        }
+        if(Input.GetMouseButton(0))
+        {
+            switch(_weaponID)
+            {
+                case 2:
+                    StartCoroutine("shooting",0.1f);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
     IEnumerator shooting(float time)
     {
         _animator.SetTrigger("attack");
-        _shoot = false;
 
         yield return new WaitForSeconds(time);
-        _shoot = true;
     }
 }
