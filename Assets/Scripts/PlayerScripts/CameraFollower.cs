@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraFollower : MonoBehaviour
 {
+    
     [SerializeField] private Transform _player;
     void Update()
     {

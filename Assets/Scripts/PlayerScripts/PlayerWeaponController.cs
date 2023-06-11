@@ -102,6 +102,10 @@ public class PlayerWeaponController : MonoBehaviour
             }
         }
     }
+    public void KnifeHit(float time)
+    {
+        StartCoroutine("knife",time);
+    }
     IEnumerator shooting(float time)
     {
         Instantiate(Resources.Load("Prefabs/Items/" + CurrentWeapon + "_bullet"),_firePoint.position,_firePoint.rotation);
@@ -120,5 +124,11 @@ public class PlayerWeaponController : MonoBehaviour
         yield return new WaitForSeconds(0.02f);
         _currentWeapon = _weaponInTrigger;
         Destroy(_col.gameObject);
+    }
+    IEnumerator knife(float time)
+    {
+        _firePoint.gameObject.SetActive(true);
+        yield return new WaitForSeconds(time);
+        _firePoint.gameObject.SetActive(false);
     }
 }
