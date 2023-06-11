@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1743322808}
   - component: {fileID: 1743322809}
+  - component: {fileID: 1372546318}
   m_Layer: 0
   m_Name: FirePoint
   m_TagString: Player
@@ -142,6 +143,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1372546318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743322807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63071b43922293445b30a6e105074ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponType: 0
+  _speed: 0
+  _damage: 0
+  _firePoint: {fileID: 0}
+  _bullet: {fileID: 0}
 --- !u!1 &1340640525024954777
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,6 +323,7 @@ MonoBehaviour:
   _playerAnimationController: {fileID: 1719283795}
   _currentWeapon: Knife
   _firePoint: {fileID: 1743322808}
+  _animator: {fileID: 1719283794}
 --- !u!61 &4777747599307019068
 BoxCollider2D:
   m_ObjectHideFlags: 0
