@@ -5,6 +5,11 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _speed;
+    [SerializeField] private float _damage;
+    public float Damage
+    {
+        get => _damage;
+    }
     private void Update()
     {
         transform.Translate(new Vector2(0,_speed * Time.deltaTime));

@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class PlayerStats : MonoBehaviour
 {
-    [SerializeField] private AWepon _weaponType;
-    [SerializeField] private float _hp;
-    [SerializeField] private int _defense;
-    [SerializeField] private float _speed;
+[SerializeField] private float _hp;
+[SerializeField] private float _defense;
     private Collider2D _col;
     void Update()
     {
@@ -15,13 +13,13 @@ public class Enemy : MonoBehaviour
         if (_hp <= 0)
         {
             Debug.Log("вы умерли");
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
-        if (_col is not null)
+        if(_col is not null)
         {
             _hp -= _col.GetComponent<Bullet>().Damage;
             Destroy(_col.gameObject);
-        }
+        }   
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
