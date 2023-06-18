@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-[SerializeField] private float _hp;
+[SerializeField] public float _hp;
 [SerializeField] private float _defense;
     private Collider2D _col;
+    public float HP { get => _hp; }
     void Update()
     {
         Debug.Log(_hp);
