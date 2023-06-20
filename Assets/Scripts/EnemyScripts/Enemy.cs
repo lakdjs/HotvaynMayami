@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyType _type;
     [SerializeField] private SpriteRenderer _sr;
     [SerializeField] Sprite[] _sprites;
+    [SerializeField] private TextHPscore _textHPscore;
     private GameObject _player;
     [SerializeField] private Rigidbody2D rb;
     private bool _clockWise, _moving, _guard;
@@ -59,6 +60,7 @@ public class Enemy : MonoBehaviour
         if (_hp <= 0)
         {
             Debug.Log("вы умерли");
+            ++_textHPscore.Score;
             Destroy(gameObject);
             Instantiate(Resources.Load("Prefabs/Items/" + _weaponType), transform.position, Quaternion.identity);
         }

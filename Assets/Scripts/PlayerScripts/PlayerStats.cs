@@ -28,7 +28,7 @@ public class PlayerStats : MonoBehaviour
             _playerWC.enabled = false;
             _playerBC2D.enabled = false;
             _playerCC2D.enabled = false;
-            _playerMC.enabled = false;
+            //_playerMC.enabled = false;
             _playerRB.simulated = false;
             _sp.sprite = _deadSprite;
         }
