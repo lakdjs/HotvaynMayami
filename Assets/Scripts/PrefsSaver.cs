@@ -5,9 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class PrefsSaver : MonoBehaviour
 {
+    private void Update()
+    {
+        Debug.Log(PlayerPrefs.GetInt("levels")); 
+    }
     private void Start()
     {
-        UnLockLevel();
     }
     public void UnLockLevel()
     {
@@ -15,7 +18,7 @@ public class PrefsSaver : MonoBehaviour
 
         if (currentLevel >= PlayerPrefs.GetInt("levels"))
         {
-            PlayerPrefs.SetInt("levels", currentLevel + 1);
+            PlayerPrefs.SetInt("levels", currentLevel+1);
         }
     }
 }

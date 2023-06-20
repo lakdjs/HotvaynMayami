@@ -10,4 +10,12 @@ public class SceneSwitcher : MonoBehaviour
     {
         SceneManager.LoadScene(name);
     }
+    public void SceneSwitching(int index)
+    {
+        SceneManager.LoadScene(index);
+    }
+    public void SceneSwitching()
+    {
+        SceneManager.LoadScene(PlayerPrefs.GetInt("levels")) ;
+    }
 }

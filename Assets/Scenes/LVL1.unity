@@ -283,6 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b22763e31ee858f4dbd71820a71b1373, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _prefsSaver: {fileID: 878791355}
   quantity: 5
 --- !u!4 &878791354
 Transform:

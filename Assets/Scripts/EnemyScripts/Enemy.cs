@@ -66,7 +66,10 @@ public class Enemy : MonoBehaviour
         
         if (_hp <= 0)
         {
-            _finish.quantity--;
+            if(_finish!=null)
+            {
+                _finish.quantity--;
+            }
             Debug.Log("вы умерли");
             ++_textHPscore.Score;
             _sr.sprite = _sprites[0];
