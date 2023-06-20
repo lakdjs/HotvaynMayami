@@ -147,7 +147,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_2
+      name: enemy_dead
       rect:
         serializedVersion: 2
         x: 125
@@ -9212,7 +9212,6 @@ TextureImporter:
       enemy_197: -1322041319
       enemy_198: -1237719724
       enemy_199: 1278373388
-      enemy_2: 1695397243
       enemy_20: -894822605
       enemy_200: 1972495711
       enemy_201: 2042186043
@@ -9528,6 +9527,7 @@ TextureImporter:
       enemy_97: 2142019374
       enemy_98: 2045008642
       enemy_99: 1136172785
+      enemy_dead: 1695397243
       enemy_pistolShootiing: 1633265048
       enemy_rifle: -869104514
       enemy_rifleShooting: 1468537050

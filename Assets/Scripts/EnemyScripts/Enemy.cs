@@ -18,20 +18,22 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyType _type;
     [SerializeField] private SpriteRenderer _sr;
     [SerializeField] Sprite[] _sprites;
+    [SerializeField] private CircleCollider2D _enemyCc2D;
+    [SerializeField] private Enemy _enemy;
+    [SerializeField] private Rigidbody2D _rb;
+    private EnemySpawner _enemySpawner;
     private TextHPscore _textHPscore;
     private GameObject _player;
-    [SerializeField] private Rigidbody2D rb;
     private bool _clockWise, _moving, _guard;
-    Vector3 target;
     private Vector3 _playerLastPos;
     RaycastHit2D hit;
     int LayerMask = 1 << 6;
     private int _weaponID;
-    private Transform check;
     private bool _shooting;
     private Collider2D _col;
     private void Start()
     {
+        _enemySpawner = FindAnyObjectByType<EnemySpawner>();
         _textHPscore = FindAnyObjectByType<TextHPscore>();
         _player = FindAnyObjectByType<PlayerWeaponController>().gameObject;
         _moving = true;
@@ -60,7 +62,15 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("вы умерли");
             ++_textHPscore.Score;
-            Destroy(gameObject);
+            _sr.sprite = _sprites[0];
+            _rb.simulated = false;
+            _enemy.enabled = false;
+            _enemyCc2D.enabled = false;
+            if (_enemySpawner != null)
+            {
+                _enemySpawner.quantity--;
+            } 
+            Destroy(gameObject,5f);
             Instantiate(Resources.Load("Prefabs/Items/" + _weaponType), transform.position, Quaternion.identity);
         }
         if (_col is not null)
@@ -123,7 +133,7 @@ public class Enemy : MonoBehaviour
         if(_type == EnemyType.ChasingPlayer && !(_player.GetComponent<PlayerStats>().HP <= 0))
         {
             _speed = 9f;
-            rb.transform.eulerAngles = new Vector3(0,0,Mathf.Atan2((_playerLastPos.y - transform.position.y),(_playerLastPos.x - transform.position.x))*Mathf.Rad2Deg);
+            _rb.transform.eulerAngles = new Vector3(0,0,Mathf.Atan2((_playerLastPos.y - transform.position.y),(_playerLastPos.x - transform.position.x))*Mathf.Rad2Deg);
             
             if(hit.transform.gameObject.layer == 7)
             {
@@ -164,7 +174,7 @@ public class Enemy : MonoBehaviour
         if(_type == EnemyType.GoingToLastPos)
         {
             _speed = 8f;
-            rb.transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2((_playerLastPos.y - transform.position.y), (_playerLastPos.x - transform.position.x)) * Mathf.Rad2Deg);
+            _rb.transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2((_playerLastPos.y - transform.position.y), (_playerLastPos.x - transform.position.x)) * Mathf.Rad2Deg);
             if(Vector3.Distance(this.transform.position,_playerLastPos) < 1.5f)
             {
                 _type = EnemyType.Patrol;

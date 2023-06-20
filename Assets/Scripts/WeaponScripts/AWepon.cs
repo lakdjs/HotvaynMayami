@@ -25,6 +25,7 @@ public abstract class AWepon : MonoBehaviour
     public int Damage => _damage;
         
     public abstract void Fire();
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")

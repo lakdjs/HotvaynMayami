@@ -4,4 +4,8 @@
     {
         throw new System.NotImplementedException();
     }
+    private void Update()
+    {
+        Destroy(gameObject, 10);
+    }
 }
