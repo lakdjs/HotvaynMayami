@@ -21,6 +21,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] private CircleCollider2D _enemyCc2D;
     [SerializeField] private Enemy _enemy;
     [SerializeField] private Rigidbody2D _rb;
+    [SerializeField] private AudioSource _source;
+    [SerializeField] private AudioClip _punch;
+    [SerializeField] private AudioClip _shot;
+    [SerializeField] private AudioClip _damage;
+    [SerializeField] private FinishLVL _finish;
+
     private EnemySpawner _enemySpawner;
     private TextHPscore _textHPscore;
     private GameObject _player;
@@ -60,6 +66,7 @@ public class Enemy : MonoBehaviour
         
         if (_hp <= 0)
         {
+            _finish.quantity--;
             Debug.Log("вы умерли");
             ++_textHPscore.Score;
             _sr.sprite = _sprites[0];
@@ -77,10 +84,12 @@ public class Enemy : MonoBehaviour
         {
             if(_col.tag == "FirePoint")
             {
+                _source.PlayOneShot(_punch);
                 _hp -= _player.GetComponent<Knife>().Damage;
             }
             else
             {
+                _source.PlayOneShot(_damage);
                 _hp -= _col.GetComponent<Bullet>().Damage;
                 Destroy(_col.gameObject);
             }      
@@ -211,6 +220,7 @@ public class Enemy : MonoBehaviour
     {
         _shooting = true;
         _sr.sprite = _sprites[_weaponID+2];
+        _source.PlayOneShot(_shot);
         Instantiate(Resources.Load("Prefabs/Items/" + _weaponType.ToString() + "_Bullet"), _firePoint.position, _firePoint.rotation);
         yield return new WaitForSeconds(0.1f);
         _sr.sprite = _sprites[_weaponID];

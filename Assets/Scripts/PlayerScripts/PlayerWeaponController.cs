@@ -10,6 +10,9 @@ public class PlayerWeaponController : MonoBehaviour
     [SerializeField]private string _currentWeapon;
     [SerializeField] Transform _firePoint;
     [SerializeField] private Animator _animator;
+    [SerializeField] private AudioSource _source;
+    [SerializeField] private AudioClip _shooting;
+    [SerializeField] private AudioClip _swinging;
     private bool _inTrigger = false, _shoot = true;
     private string _weaponInTrigger;
     private bool _isWeaponInTrigger;
@@ -112,7 +115,7 @@ public class PlayerWeaponController : MonoBehaviour
         Instantiate(Resources.Load("Prefabs/Items/" + CurrentWeapon + "_bullet"),_firePoint.position,_firePoint.rotation);
         _animator.SetTrigger("attack");
         _shoot = false;
-
+        _source.PlayOneShot(_shooting);
         yield return new WaitForSeconds(time);
         _shoot = true;
     }
@@ -128,6 +131,7 @@ public class PlayerWeaponController : MonoBehaviour
     }
     IEnumerator knife(float time)
     {
+        _source.PlayOneShot(_swinging);
         _firePoint.gameObject.SetActive(true);
         yield return new WaitForSeconds(time);
         _firePoint.gameObject.SetActive(false);
