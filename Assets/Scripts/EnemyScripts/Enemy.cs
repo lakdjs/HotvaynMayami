@@ -204,7 +204,7 @@ public class Enemy : MonoBehaviour
         Instantiate(Resources.Load("Prefabs/Items/" + _weaponType.ToString() + "_Bullet"), _firePoint.position, _firePoint.rotation);
         yield return new WaitForSeconds(0.1f);
         _sr.sprite = _sprites[_weaponID];
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(time-0.1f);
         _shooting = false;
     }
     private void OnMouseOver()
