@@ -16,16 +16,17 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private Transform _firePoint;
     [SerializeField] private EnemyType _type;
-    [SerializeField] private int _weaponID;
     [SerializeField] private SpriteRenderer _sr;
     [SerializeField] Sprite[] _sprites;
     [SerializeField] private GameObject _player;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Collider2D _batonCollider;
     private bool _clockWise, _moving, _guard;
     Vector3 target;
-    [SerializeField] private Rigidbody2D rb;
     private Vector3 _playerLastPos;
     RaycastHit2D hit;
     int LayerMask = 1 << 6;
+    private int _weaponID;
     private Transform check;
     private bool _shooting;
     private Collider2D _col;
@@ -57,16 +58,24 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("вы умерли");
             Destroy(gameObject);
+            Instantiate(Resources.Load("Prefabs/Items/" + _weaponType), transform.position, Quaternion.identity);
         }
         if (_col is not null)
         {
-            _hp -= _col.GetComponent<Bullet>().Damage;
-            Destroy(_col.gameObject);
+            if(_col == _batonCollider)
+            {
+                _hp -= _batonCollider.GetComponent<Knife>().Damage;
+            }
+            else
+            {
+                _hp -= _col.GetComponent<Bullet>().Damage;
+                Destroy(_col.gameObject);
+            }      
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Bullet>())
+        if (collision.GetComponent<Bullet>()||collision == _batonCollider)
         {
             _col = collision;
         }
@@ -110,7 +119,7 @@ public class Enemy : MonoBehaviour
         }
         if(_type == EnemyType.ChasingPlayer && !(_player.GetComponent<PlayerStats>().HP <= 0))
         {
-            _speed = 6.5f;
+            _speed = 9f;
             rb.transform.eulerAngles = new Vector3(0,0,Mathf.Atan2((_playerLastPos.y - transform.position.y),(_playerLastPos.x - transform.position.x))*Mathf.Rad2Deg);
             
             if(hit.transform.gameObject.layer == 7)
@@ -147,7 +156,7 @@ public class Enemy : MonoBehaviour
         }
         if(_type == EnemyType.GoingToLastPos)
         {
-            _speed = 5f;
+            _speed = 8f;
             rb.transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2((_playerLastPos.y - transform.position.y), (_playerLastPos.x - transform.position.x)) * Mathf.Rad2Deg);
             if(Vector3.Distance(this.transform.position,_playerLastPos) < 1.5f)
             {

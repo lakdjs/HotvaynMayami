@@ -308,7 +308,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0000000077924875, y: 1.8385438}
@@ -539,6 +539,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1030717991 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4598643105721360664, guid: cadf8a1b27f4ca0418373ba4ddbdab20, type: 3}
+  m_PrefabInstance: {fileID: 4598643105290754457}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 532c885c4b9aa814ea1219feb93d73e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &1315887494 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1743322809, guid: b255e16a0fbc58a44a230440202c6ac6, type: 3}
+  m_PrefabInstance: {fileID: 1340640524593347028}
+  m_PrefabAsset: {fileID: 0}
 --- !u!50 &1498499672 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 6948173507765861072, guid: 2f731ec137991d149962e77904320641, type: 3}
@@ -692,20 +708,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1340640525024954756, guid: b255e16a0fbc58a44a230440202c6ac6, type: 3}
   m_PrefabInstance: {fileID: 1340640524593347028}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1719283799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1591089363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52461aacb5a97fd4790645841492983a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hp: 100
-  _defense: 0
 --- !u!212 &1820933201 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 6948173508668132569, guid: 2f731ec137991d149962e77904320641, type: 3}
@@ -1018,13 +1020,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1471609695, guid: b255e16a0fbc58a44a230440202c6ac6, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1743322807, guid: b255e16a0fbc58a44a230440202c6ac6, type: 3}
-      propertyPath: m_Layer
-      value: 7
+    - target: {fileID: 1372546318, guid: b255e16a0fbc58a44a230440202c6ac6, type: 3}
+      propertyPath: _damage
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1340640525024954756, guid: b255e16a0fbc58a44a230440202c6ac6, type: 3}
       propertyPath: m_RootOrder
@@ -1074,34 +1072,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1340640525024954777, guid: b255e16a0fbc58a44a230440202c6ac6, type: 3}
-      propertyPath: m_Layer
-      value: 7
+    - target: {fileID: 6933892312315862252, guid: b255e16a0fbc58a44a230440202c6ac6, type: 3}
+      propertyPath: _hp
+      value: 100000
       objectReference: {fileID: 0}
-    - target: {fileID: 1340640525599793169, guid: b255e16a0fbc58a44a230440202c6ac6, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1340640525599793169, guid: b255e16a0fbc58a44a230440202c6ac6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4777747599307019068, guid: b255e16a0fbc58a44a230440202c6ac6, type: 3}
-      propertyPath: m_Size.x
-      value: 0.0001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4777747599307019068, guid: b255e16a0fbc58a44a230440202c6ac6, type: 3}
-      propertyPath: m_Size.y
-      value: 0.0001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4777747599307019068, guid: b255e16a0fbc58a44a230440202c6ac6, type: 3}
-      propertyPath: m_Offset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4777747599307019068, guid: b255e16a0fbc58a44a230440202c6ac6, type: 3}
-      propertyPath: m_Offset.y
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 6933892312315862252, guid: b255e16a0fbc58a44a230440202c6ac6, type: 3}
+      propertyPath: _playerMC
+      value: 
+      objectReference: {fileID: 1030717991}
+    - target: {fileID: 6933892312315862252, guid: b255e16a0fbc58a44a230440202c6ac6, type: 3}
+      propertyPath: _playerRB
+      value: 
+      objectReference: {fileID: 1719283790}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b255e16a0fbc58a44a230440202c6ac6, type: 3}
 --- !u!1001 &3055678480693225365
@@ -1168,6 +1150,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4598643105721360664, guid: cadf8a1b27f4ca0418373ba4ddbdab20, type: 3}
+      propertyPath: _speed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4598643105721360664, guid: cadf8a1b27f4ca0418373ba4ddbdab20, type: 3}
       propertyPath: _rigidbody2D
       value: 
@@ -1251,7 +1237,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6948173507765861073, guid: 2f731ec137991d149962e77904320641, type: 3}
       propertyPath: _speed
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6948173507765861073, guid: 2f731ec137991d149962e77904320641, type: 3}
       propertyPath: _player
@@ -1265,6 +1251,10 @@ PrefabInstance:
       propertyPath: _weaponType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6948173507765861073, guid: 2f731ec137991d149962e77904320641, type: 3}
+      propertyPath: _batonCollider
+      value: 
+      objectReference: {fileID: 1315887494}
     - target: {fileID: 6948173507765861085, guid: 2f731ec137991d149962e77904320641, type: 3}
       propertyPath: m_Name
       value: Enemy

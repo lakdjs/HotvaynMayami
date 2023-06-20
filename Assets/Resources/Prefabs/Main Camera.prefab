@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 532c885c4b9aa814ea1219feb93d73e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidbody2D: {fileID: 0}
+  _rigidbody2D: {fileID: 1340640525024954778, guid: b255e16a0fbc58a44a230440202c6ac6, type: 3}
   _speed: 10
 --- !u!114 &4598643105721360667
 MonoBehaviour:
@@ -112,4 +112,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74ce4593a426b9647a2cc34772ccc2bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
+  _player: {fileID: 1340640525024954756, guid: b255e16a0fbc58a44a230440202c6ac6, type: 3}

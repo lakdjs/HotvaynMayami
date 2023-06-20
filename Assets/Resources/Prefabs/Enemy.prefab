@@ -64,10 +64,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebc3746e7d60af041b9ae5f78c80f500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponType: {fileID: 0}
+  _weaponType: 0
   _hp: 100
   _defense: 0
-  _speed: 0
+  _speed: 6
+  _firePoint: {fileID: 6948173508843942769}
+  _type: 0
+  _sr: {fileID: 6948173508668132569}
+  _sprites: []
+  _player: {fileID: 1340640525024954777, guid: b255e16a0fbc58a44a230440202c6ac6, type: 3}
+  rb: {fileID: 6948173507765861072}
 --- !u!50 &6948173507765861072
 Rigidbody2D:
   serializedVersion: 4

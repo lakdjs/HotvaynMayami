@@ -15,6 +15,7 @@ public class PlayerWeaponController : MonoBehaviour
     private bool _isWeaponInTrigger;
     
     private Collider2D _col;
+
     public string CurrentWeapon => _currentWeapon;
     public bool InTrigger => _inTrigger;
     public bool Shoot => _shoot;
