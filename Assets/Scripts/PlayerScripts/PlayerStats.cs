@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-[SerializeField] private float _hp;
-[SerializeField] private float _defense;
+    [SerializeField] private float _hp;
+    [SerializeField] private float _defense;
     [SerializeField] private Sprite _deadSprite;
     [SerializeField] private SpriteRenderer _sp;
     [SerializeField] private Animator _playerAnimator;
@@ -23,14 +23,14 @@ public class PlayerStats : MonoBehaviour
         if (_hp <= 0)
         {
             Debug.Log("вы умерли");
-            _playerAnimator.enabled = false;
-            _playerAC.enabled = false;
-            _playerWC.enabled = false;
-            _playerBC2D.enabled = false;
-            _playerCC2D.enabled = false;
-            //_playerMC.enabled = false;
-            _playerRB.simulated = false;
-            _sp.sprite = _deadSprite;
+           _playerAnimator.enabled = false;
+           _playerAC.enabled = false;
+           _playerWC.enabled = false;
+           _playerBC2D.enabled = false;
+           _playerCC2D.enabled = false;
+           _playerMC.enabled = false;
+           _playerRB.simulated = false;
+           _sp.sprite = _deadSprite;
         }
         if(_col is not null)
         {

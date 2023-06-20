@@ -3234,7 +3234,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_149
+      name: enemy_rifle
       rect:
         serializedVersion: 2
         x: 470
@@ -3864,15 +3864,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_179
+      name: Enemy_pistol
       rect:
         serializedVersion: 2
         x: 470
         y: 414
         width: 42
         height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.2052576, y: 0.5322829}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3885,7 +3885,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_180
+      name: enemy_rifleShooting
       rect:
         serializedVersion: 2
         x: 521
@@ -3969,7 +3969,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_184
+      name: enemy_pistolShootiing
       rect:
         serializedVersion: 2
         x: 725
@@ -9037,8 +9037,8 @@ TextureImporter:
         y: 24
         width: 45
         height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.18793607, y: 0.5166159}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -9103,6 +9103,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Enemy_pistol: 1134796305
       enemy_0: 1083784102
       enemy_1: 478289580
       enemy_10: 2003494003
@@ -9159,7 +9160,6 @@ TextureImporter:
       enemy_146: 505788421
       enemy_147: 343091056
       enemy_148: -236469402
-      enemy_149: -869104514
       enemy_15: -223314375
       enemy_150: -747586416
       enemy_151: 989630677
@@ -9192,13 +9192,10 @@ TextureImporter:
       enemy_176: 1174807561
       enemy_177: -1603574075
       enemy_178: -959253941
-      enemy_179: 1134796305
       enemy_18: 773703216
-      enemy_180: 1468537050
       enemy_181: -1363997838
       enemy_182: 171599373
       enemy_183: 422863266
-      enemy_184: 1633265048
       enemy_185: 1742638455
       enemy_186: 632971076
       enemy_187: 224869962
@@ -9531,6 +9528,9 @@ TextureImporter:
       enemy_97: 2142019374
       enemy_98: 2045008642
       enemy_99: 1136172785
+      enemy_pistolShootiing: 1633265048
+      enemy_rifle: -869104514
+      enemy_rifleShooting: 1468537050
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

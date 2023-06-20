@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyType _type;
     [SerializeField] private SpriteRenderer _sr;
     [SerializeField] Sprite[] _sprites;
-    [SerializeField] private TextHPscore _textHPscore;
+    private TextHPscore _textHPscore;
     private GameObject _player;
     [SerializeField] private Rigidbody2D rb;
     private bool _clockWise, _moving, _guard;
@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
     private Collider2D _col;
     private void Start()
     {
+        _textHPscore = FindAnyObjectByType<TextHPscore>();
         _player = FindAnyObjectByType<PlayerWeaponController>().gameObject;
         _moving = true;
         switch (_weaponType)
@@ -46,7 +47,7 @@ public class Enemy : MonoBehaviour
                 _weaponID = 2;
                 break;     
         }
-       // _sr.sprite = _sprites[_weaponID];
+        _sr.sprite = _sprites[_weaponID];
         _playerLastPos = this.transform.position;
         LayerMask = ~LayerMask;
     }
@@ -54,8 +55,6 @@ public class Enemy : MonoBehaviour
     {
         Movement();
         PlayerDetect();
-        Debug.Log($"{gameObject.name} {_guard}");
-        Debug.Log($"{gameObject.name} {hit.transform.gameObject.layer}");
         
         if (_hp <= 0)
         {
@@ -131,7 +130,7 @@ public class Enemy : MonoBehaviour
                 _playerLastPos = _player.transform.position;
                 if(_weaponType == AWepon.Weapons.Pistol||_weaponType == AWepon.Weapons.Rifle)
                 {
-                    if(Vector3.Distance(transform.position,_player.transform.position) <= 6f)
+                    if(Vector3.Distance(transform.position,_player.transform.position) <= 8f)
                     {
                         _moving = false;
                         switch (_weaponType)
@@ -201,8 +200,10 @@ public class Enemy : MonoBehaviour
     IEnumerator attackShoot(float time)
     {
         _shooting = true;
+        _sr.sprite = _sprites[_weaponID+2];
         Instantiate(Resources.Load("Prefabs/Items/" + _weaponType.ToString() + "_Bullet"), _firePoint.position, _firePoint.rotation);
-
+        yield return new WaitForSeconds(0.1f);
+        _sr.sprite = _sprites[_weaponID];
         yield return new WaitForSeconds(time);
         _shooting = false;
     }

@@ -71,8 +71,12 @@ MonoBehaviour:
   _firePoint: {fileID: 6948173508843942769}
   _type: 0
   _sr: {fileID: 6948173508668132569}
-  _sprites: []
-  _player: {fileID: 1340640525024954777, guid: b255e16a0fbc58a44a230440202c6ac6, type: 3}
+  _sprites:
+  - {fileID: 0}
+  - {fileID: 1134796305, guid: 2c76164846d067045b20f0df897e6cef, type: 3}
+  - {fileID: -869104514, guid: 2c76164846d067045b20f0df897e6cef, type: 3}
+  - {fileID: 1633265048, guid: 2c76164846d067045b20f0df897e6cef, type: 3}
+  - {fileID: 1468537050, guid: 2c76164846d067045b20f0df897e6cef, type: 3}
   rb: {fileID: 6948173507765861072}
 --- !u!50 &6948173507765861072
 Rigidbody2D:
