@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 1372546318}
   m_Layer: 7
   m_Name: FirePoint
-  m_TagString: Player
+  m_TagString: FirePoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponType: 0
   _speed: 0
-  _damage: 0
+  _damage: 100
   _firePoint: {fileID: 0}
   _bullet: {fileID: 0}
 --- !u!1 &1340640525024954777
@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 4777747599307019068}
   - component: {fileID: 8169137714405861843}
   - component: {fileID: 6933892312315862252}
+  - component: {fileID: 1719283806}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -379,7 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52461aacb5a97fd4790645841492983a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 100
+  _hp: 100000
   _defense: 0
   _deadSprite: {fileID: 412388898, guid: 866b9ce5228ecc04b925401d021c2b78, type: 3}
   _sp: {fileID: 1471609697}
@@ -388,8 +389,25 @@ MonoBehaviour:
   _playerAC: {fileID: 1719283795}
   _playerBC2D: {fileID: 4777747599307019068}
   _playerCC2D: {fileID: 8169137714405861843}
-  _playerMC: {fileID: 4598643105721360664, guid: cadf8a1b27f4ca0418373ba4ddbdab20, type: 3}
+  _playerMC: {fileID: 0}
   _playerRB: {fileID: 1340640525024954778}
+--- !u!114 &1719283806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340640525024954777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63071b43922293445b30a6e105074ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponType: 0
+  _speed: 0
+  _damage: 100
+  _firePoint: {fileID: 1743322808}
+  _bullet: {fileID: 0}
 --- !u!1 &1340640525599793169
 GameObject:
   m_ObjectHideFlags: 0

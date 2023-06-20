@@ -13,7 +13,7 @@ public class Knife : AWepon
        else if(other.gameObject.layer == 3)
        {
            Debug.Log("Other!");
-          // Destroy(gameObject);
+            // Destroy(gameObject);
        }
    }
     public override void Fire()

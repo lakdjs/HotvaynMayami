@@ -18,9 +18,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyType _type;
     [SerializeField] private SpriteRenderer _sr;
     [SerializeField] Sprite[] _sprites;
-    [SerializeField] private GameObject _player;
+    private GameObject _player;
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Collider2D _batonCollider;
     private bool _clockWise, _moving, _guard;
     Vector3 target;
     private Vector3 _playerLastPos;
@@ -32,6 +31,7 @@ public class Enemy : MonoBehaviour
     private Collider2D _col;
     private void Start()
     {
+        _player = FindAnyObjectByType<PlayerWeaponController>().gameObject;
         _moving = true;
         switch (_weaponType)
         {
@@ -53,7 +53,9 @@ public class Enemy : MonoBehaviour
     {
         Movement();
         PlayerDetect();
-        Debug.Log(_hp);
+        Debug.Log($"{gameObject.name} {_guard}");
+        Debug.Log($"{gameObject.name} {hit.transform.gameObject.layer}");
+        
         if (_hp <= 0)
         {
             Debug.Log("вы умерли");
@@ -62,9 +64,9 @@ public class Enemy : MonoBehaviour
         }
         if (_col is not null)
         {
-            if(_col == _batonCollider)
+            if(_col.tag == "FirePoint")
             {
-                _hp -= _batonCollider.GetComponent<Knife>().Damage;
+                _hp -= _player.GetComponent<Knife>().Damage;
             }
             else
             {
@@ -75,7 +77,7 @@ public class Enemy : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Bullet>()||collision == _batonCollider)
+        if (collision.GetComponent<Bullet>()||collision.tag == "FirePoint")
         {
             _col = collision;
         }
@@ -92,7 +94,7 @@ public class Enemy : MonoBehaviour
         Debug.DrawRay(transform.position, dir, Color.red);
 
         Vector3 fwt = this.transform.TransformDirection(Vector3.right);
-        RaycastHit2D hit2 = Physics2D.Raycast(new Vector2(this.transform.position.x,this.transform.position.y),new Vector2(fwt.x,fwt.y),2.0f,LayerMask);
+        RaycastHit2D hit2 = Physics2D.Raycast(new Vector2(this.transform.position.x,this.transform.position.y),new Vector2(fwt.x,fwt.y),1.0f,LayerMask);
         Debug.DrawRay(new Vector2(this.transform.position.x,this.transform.position.y),new Vector2(fwt.x,fwt.y),Color.cyan);
 
         if(_moving)
@@ -101,7 +103,7 @@ public class Enemy : MonoBehaviour
         }
         if(_type == EnemyType.Patrol)
         {
-            _speed = 2f;
+            _speed = 3f;
             if(hit2.collider != null)
             {
                 if(hit2.collider.gameObject.layer == 3)
@@ -140,18 +142,22 @@ public class Enemy : MonoBehaviour
                                 break;
                         }
                     }
-                    else
-                    {
-                        if(!_guard)
-                        {
-                            _moving = true;
-                        }
-                    }
+                  else
+                  {
+                      if(!_guard)
+                      {
+                          _moving = true;
+                      }
+                  }
                 }
                 if(_weaponType == AWepon.Weapons.Knife)
                 {
 
                 }
+            }
+            else
+            {
+                _moving = true;
             }
         }
         if(_type == EnemyType.GoingToLastPos)
@@ -161,6 +167,7 @@ public class Enemy : MonoBehaviour
             if(Vector3.Distance(this.transform.position,_playerLastPos) < 1.5f)
             {
                 _type = EnemyType.Patrol;
+                _moving = true;
             }
         }
     }
@@ -195,7 +202,6 @@ public class Enemy : MonoBehaviour
         Instantiate(Resources.Load("Prefabs/Items/" + _weaponType.ToString() + "_Bullet"), _firePoint.position, _firePoint.rotation);
 
         yield return new WaitForSeconds(time);
-
         _shooting = false;
     }
     private void OnMouseOver()

@@ -25,7 +25,7 @@ public class PlayerWeaponController : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(_shoot);
+        //Debug.Log(_shoot);
         AttackManager(_playerAnimationController.WeaponID);
         WeaponManager();
         if (_inTrigger && _isWeaponInTrigger && Input.GetMouseButtonDown(1))
